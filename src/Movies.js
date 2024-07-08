@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Movies = () =>{
 const [movieName, setMovieName] = useState('');
@@ -24,7 +25,7 @@ console.log(movies)
 
 return(
     <>
-        <input onChange={(e)=>name(e)} type="text"/>
+        <input onChange={(e) => name(e)} type="text" placeholder="영화 제목을 입력하세요" />
         <button onClick={search}>검색</button>
         <div>
             {

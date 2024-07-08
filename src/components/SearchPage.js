@@ -14,7 +14,7 @@ const SearchPage = () => {
   return (
     <div>
       <h1>영화 검색</h1>
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+      <input type="text" placeholder="영화 제목을 입력하세요" value={query} onChange={(e) => setQuery(e.target.value)}  />
       <button onClick={searchMovies}>검색</button>
       <ul>
         {movies.map(movie => (
