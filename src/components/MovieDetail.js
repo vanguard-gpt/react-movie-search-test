@@ -12,11 +12,13 @@ const MovieDetail = () => {
     const fetchMovie = async () => {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=9d2bff12ed955c7f1f74b83187f188ae`);
       setMovie(response.data);
+      console.log(response.data)
     };
 
     const fetchVideos = async () => {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=9d2bff12ed955c7f1f74b83187f188ae`);
       setVideos(response.data.results);
+      console.log(response.data.results)
     };
 
     fetchMovie();
@@ -26,7 +28,7 @@ const MovieDetail = () => {
   if (!movie) return <div>로딩중...</div>;
 
   return (
-    <div>
+    <div className='movie-detail-container'>
       <h1>{movie.title}</h1>
       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
       <p>{movie.overview}</p>
