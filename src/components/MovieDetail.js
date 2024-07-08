@@ -26,6 +26,7 @@ const MovieDetail = () => {
   if (!movie) return <div>로딩중...</div>;
 
   return (
+    
     <div>
       <table style={{ width: '100%', marginTop: '20px' }}>
         <tbody>
