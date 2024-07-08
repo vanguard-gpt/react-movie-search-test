@@ -1,0 +1,27 @@
+.search-page-contianer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 724px;
+  height: 612px;
+}
+
+.search-container{
+
+}
+.movie-list{
+  overflow-y: auto;
+  width: 100%;
+}
+.movie-list .movie-link{
+  display: flex;
+  align-items: center;
+}
+.movie-list .movie-item{
+  margin-bottom: 1em;
+
+}
