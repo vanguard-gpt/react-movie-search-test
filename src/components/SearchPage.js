@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import '../SearchPage.css'
 const SearchPage = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -12,17 +12,29 @@ const SearchPage = () => {
   };
 
   return (
-    <div>
+    <div className='search-page-contianer'>
       <h1>영화 검색</h1>
-      <input type="text" placeholder="영화 제목을 입력하세요" value={query} onChange={(e) => setQuery(e.target.value)}  />
-      <button onClick={searchMovies}>검색</button>
-      <ul>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className='search-container'>
+        <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <button onClick={searchMovies}>검색</button>
+      </div>
+      <div className='movie-list'>
+        <ul>
+          {movies.map(movie => (
+            <li className='movie-item' key={movie.id}>
+              <Link className='movie-link' to={`/movie/${movie.id}`} state={{movie}}>
+                {movie.poster_path ? (
+                  <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} style={{ maxWidth: '100%', maxHeight: 'auto' }} />
+                ) : (
+                  <p>이미지가 없습니다.</p>
+                )}
+                <div>{movie.title}</div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
   );
 };

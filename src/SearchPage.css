@@ -20,8 +20,12 @@
 .movie-list .movie-link{
   display: flex;
   align-items: center;
+  text-decoration-line: none;
 }
 .movie-list .movie-item{
   margin-bottom: 1em;
 
+}
+img{
+  width: 50px;
 }
